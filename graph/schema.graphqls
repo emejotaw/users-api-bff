@@ -1,0 +1,41 @@
+type User {
+  id: String!
+  name: String!
+  email: String!
+  documentID: String!
+  address: Address!
+}
+
+type Address {
+  id: String!
+  state: String!
+  city: String!
+  neighborhood: String!
+  street: String!
+  number: String!
+  zipCode: String!
+}
+
+input AddressInput {
+  state: String!
+  city: String!
+  neighborhood: String!
+  street: String!
+  number: String!
+  zipCode: String!
+}
+
+input UserInput {
+  name: String!
+  email: String!
+  documentID: String!
+  address: AddressInput!
+}
+
+type Query {
+  users: [User!]!
+}
+
+type Mutation {
+  createUser(input: UserInput!): User!
+}
